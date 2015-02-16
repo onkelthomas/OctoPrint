@@ -436,20 +436,17 @@ class Profile(object):
 						for emb in embedded_index:
 							# try, if the target index is embedded in the option, e.g. start2.gcode
 							startstr = embedded_index[emb][0]
-							print startstr
 							endstr = embedded_index[emb][1]
-							print endstr
 							if key.startswith(startstr) and key.endswith(endstr):
 								try:
 									index = int(key[len(startstr):(len(key)-len(endstr))]) - 1
-									print index
 								except ValueError:
 									ignored = True
 								key = opt
 								found = True
 								break	
-					if found:
-						break							
+						if found:
+							break							
 
 				if ignored:
 					continue
