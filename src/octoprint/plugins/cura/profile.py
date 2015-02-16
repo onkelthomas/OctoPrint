@@ -437,7 +437,7 @@ class Profile(object):
 							# try, if the target index is embedded in the option, e.g. start2.gcode
 							startstr = embedded_index[emb][0]
 							endstr = embedded_index[emb][1]
-							if key.startswith(startstr) and key.endswith(endstr):
+							if key.startswith(startstr) and key.endswith(endstr) and opt.startswith(startstr) and opt.endswith(endstr):
 								try:
 									index = int(key[len(startstr):(len(key)-len(endstr))]) - 1
 								except ValueError:
