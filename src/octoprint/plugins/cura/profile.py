@@ -432,6 +432,7 @@ class Profile(object):
 						break
 
 					else:
+						found = False
 						for emb in embedded_index:
 							# try, if the target index is embedded in the option, e.g. start2.gcode
 							startstr = embedded_index[emb][0]
@@ -444,8 +445,11 @@ class Profile(object):
 									print index
 								except ValueError:
 									ignored = True
-							key = opt
-							break						
+								key = opt
+								found = True
+								break	
+					if found:
+						break							
 
 				if ignored:
 					continue
