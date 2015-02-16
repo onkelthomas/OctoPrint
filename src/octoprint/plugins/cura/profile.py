@@ -367,14 +367,8 @@ class Profile(object):
 		translated_options["start.gcode"] = "start_gcode"
 		translated_options["end.gcode"] = "end_gcode"
 		embedded_index = dict(
-			start_gcode={
-				"Start": "start",
-				"End": ".gcode"
-			},
-			end_gcode={
-				"Start": "end",
-				"End": ".gcode"
-			}
+			start_gcode=["start",".gcode"],
+			end_gcode=["end",".gcode"]
 		)
 		value_conversions = dict(
 			platform_adhesion={
@@ -440,8 +434,8 @@ class Profile(object):
 					else:
 						for emb in embedded_index:
 							# try, if the target index is embedded in the option, e.g. start2.gcode
-							startstr = embedded_index[emb][Start]
-							endstr = embedded_index[emb][End]
+							startstr = embedded_index[emb][0]
+							endstr = embedded_index[emb][1]
 							if key.startswith(startstr) and key.endswith(endstr):
 								try:
 									index = int(key[len(startstr):(len(key)-len(endstr))]) - 1
