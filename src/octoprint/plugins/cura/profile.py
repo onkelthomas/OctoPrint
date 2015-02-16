@@ -367,8 +367,8 @@ class Profile(object):
 		translated_options["start.gcode"] = "start_gcode"
 		translated_options["end.gcode"] = "end_gcode"
 		embedded_index = dict(
-			start_gcode=["start",".gcode"],
-			end_gcode=["end",".gcode"]
+			startgc=["start",".gcode"],
+			endgc=["end",".gcode"]
 		)
 		value_conversions = dict(
 			platform_adhesion={
@@ -444,8 +444,13 @@ class Profile(object):
 									ignored = True
 								key = opt
 								found = True
+								print 'Found gcode'
+								print key
+								print index
+								print value
 								break	
 						if found:
+							print 'found triggered'
 							break							
 
 				if ignored:
